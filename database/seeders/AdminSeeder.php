@@ -26,7 +26,6 @@ class AdminSeeder extends Seeder
         ], [
             'name' => 'Hendra Susanto',
             'password' => Hash::make('Jasanet@123'),
-            'tanggal_lahir' => '2000-01-01',
             'status' => 'active'
         ]);
         $adminUser = User::updateOrCreate([
@@ -34,7 +33,6 @@ class AdminSeeder extends Seeder
         ], [
             'name' => 'Arif Febrianto',
             'password' => Hash::make('Jasanet@123'),
-            'tanggal_lahir' => '2002-02-25',
             'status' => 'active'
         ]);
         $adminUser = User::updateOrCreate([
@@ -42,7 +40,6 @@ class AdminSeeder extends Seeder
         ], [
             'name' => 'Erna Safitri',
             'password' => Hash::make('Jasanet@123'),
-            'tanggal_lahir' => '2000-01-01',
             'status' => 'active'
         ]);
         $adminUser = User::updateOrCreate([
@@ -50,7 +47,6 @@ class AdminSeeder extends Seeder
         ], [
             'name' => 'Dani Prasetya',
             'password' => Hash::make('Jasanet@123'),
-            'tanggal_lahir' => '2000-01-01',
             'status' => 'active'
         ]);
         $adminUser = User::updateOrCreate([
@@ -58,7 +54,6 @@ class AdminSeeder extends Seeder
         ], [
             'name' => 'Muhammad Iqbal Ramadan',
             'password' => Hash::make('Jasanet@123'),
-            'tanggal_lahir' => '2000-01-01',
             'status' => 'active'
         ]);
 

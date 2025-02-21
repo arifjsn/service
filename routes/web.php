@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\ClaimGaransiController as AdminClaimGaransiController;
-use App\Http\Controllers\Admin\RegistrasiGaransiController as AdminRegistrasiGaransiController;
+use App\Http\Controllers\Admin\TransactionsController as AdminTransactionsController;
 use App\Http\Controllers\Admin\LogsController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
@@ -73,11 +72,11 @@ Route::middleware(['auth'])->group(function () {
         ->name('admin.')
         ->group(function () {
             /**
-             * Registrasi Garansi
+             * Transactions
              */
-            Route::controller(AdminRegistrasiGaransiController::class)
-                ->prefix('registrasi-garansi')
-                ->name('registrasi-garansi.')
+            Route::controller(AdminTransactionsController::class)
+                ->prefix('transactions')
+                ->name('transactions.')
                 ->group(function () {
                     Route::get('/', 'index')->name('index');
                     Route::get('/{id}/detail', 'detail')->name('detail');

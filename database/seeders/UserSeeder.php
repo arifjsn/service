@@ -25,7 +25,6 @@ class UserSeeder extends Seeder
         ], [
             'name' => 'OTTO Digital',
             'password' => Hash::make('ottodigital'),
-            'tanggal_lahir' => '2000-01-01',
             'status' => 'active'
         ]);
 
