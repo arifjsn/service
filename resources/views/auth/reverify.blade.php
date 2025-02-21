@@ -7,9 +7,9 @@ Resend Email Verification
 @section('body')
 <div class="login-box">
 
-    <div class="card card-outline card-primary">
+    <div class="card card-outline card-success">
         <div class="card-header text-center">
-            <img src="{{ asset('dist/img/winkey.png') }}" alt="logo" height="100">
+            <img src="{{ asset('dist/img/logo-jasanet.png') }}" alt="logo" height="70">
         </div>
         <div class="card-body">
 
@@ -46,13 +46,13 @@ Resend Email Verification
                 </div>
                 <div class="row d-flex justify-content-end">
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        <button type="submit" class="btn btn-success btn-block">Submit</button>
                     </div>
                 </div>
             </form>
 
             <p class="mb-1">
-                <a href="{{ route('login') }}">Login</a>
+                <a class="text-success" href="{{ route('login') }}">Login</a>
             </p>
         </div>
 

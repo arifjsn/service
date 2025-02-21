@@ -7,9 +7,9 @@ Register
 @section('body')
 <div class="login-box">
 
-    <div class="card card-outline card-primary">
+    <div class="card card-outline card-success">
         <div class="card-header text-center">
-            <img src="{{ asset('dist/img/winkey.png') }}" alt="logo" height="100">
+            <img src="{{ asset('dist/img/logo-jasanet.png') }}" alt="logo" height="70">
         </div>
         <div class="card-body">
             <p class="login-box-msg">Register a new account</p>
@@ -32,7 +32,7 @@ Register
                     <input type="email" name="email" class="form-control" placeholder="Email">
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fa fa-envelope"></span>
+                            <span class="fa fa-user"></span>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@ Register
                     </div>
 
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        <button type="submit" class="btn btn-success btn-block">Register</button>
                     </div>
 
                 </div>
@@ -80,7 +80,7 @@ Register
 
 
             <p class="mb-0">
-                <a href="{{ route('login') }}" class="text-center">I already have an account</a>
+                <a href="{{ route('login') }}" class="text-center text-success">I already have an account</a>
             </p>
             <p>
                 <span class="text-danger">*</span> The password must be at least 8 characters, one uppercase letter with numbers and one symbol. 

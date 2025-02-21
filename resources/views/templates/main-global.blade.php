@@ -26,24 +26,28 @@
             background-position: center center;
             background-attachment: fixed;
             background-repeat: no-repeat; background-size: cover;
-            background-image: url("{{ asset('dist/img/background.png') }}");
+            background-color: #300104 !important;
+            /* background-image: url("{{ asset('dist/img/background.png') }}"); */
         }
         
         @media (max-width: 480px) {
             body {
-                background-image: url("{{ asset('dist/img/background-mobile.png') }}");
+                background-color: #300104 !important;
+                /* background-image: url("{{ asset('dist/img/background-mobile.png') }}"); */
             }
         }
 
         @media (min-width: 481px) and (max-width: 1024px) {
             body {
-                background-image: url("{{ asset('dist/img/background.png') }}");
+                background-color: #300104 !important;
+                /* background-image: url("{{ asset('dist/img/background.png') }}"); */
             }
         }
 
         @media (min-width: 1025px) {
             body {
-                background-image: url("{{ asset('dist/img/background.png') }}");
+                background-color: #300104 !important;
+                /* background-image: url("{{ asset('dist/img/background.png') }}"); */
             }
         }
     </style>

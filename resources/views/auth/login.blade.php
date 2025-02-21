@@ -7,9 +7,9 @@ Login
 @section('body')
 <div class="login-box">
 
-    <div class="card card-outline card-primary">
+    <div class="card card-outline card-success">
         <div class="card-header text-center">
-            <img src="{{ asset('dist/img/winkey.png') }}" alt="logo" height="100">
+            <img src="{{ asset('dist/img/logo-jasanet.png') }}" alt="logo" height="70">
         </div>
         <div class="card-body">
 
@@ -57,19 +57,19 @@ Login
                 </div>
                 <div class="row d-flex justify-content-end">
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <button type="submit" class="btn btn-success btn-block">Login</button>
                     </div>
                 </div>
             </form>
 
             <p class="mb-0">
-                <a href="{{ route('register') }}">Register</a>
+                <a class="text-success" href="{{ route('register') }}">Register</a>
             </p>
             <p class="mb-0">
-                <a href="{{ route('forgot_password') }}">Forgot Password</a>
+                <a class="text-success" href="{{ route('forgot_password') }}">Forgot Password</a>
             </p>
             <p class="mb-0">
-                <a href="{{ route('reverify') }}">Resend Verification</a>
+                <a class="text-success" href="{{ route('reverify') }}">Resend Verification</a>
             </p>
         </div>
 

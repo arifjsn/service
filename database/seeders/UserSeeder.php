@@ -21,10 +21,10 @@ class UserSeeder extends Seeder
         ], []);
 
         $user = User::updateOrCreate([
-            'email' => 'user@winkey.id'
+            'email' => 'otto@jasanet.co.id'
         ], [
-            'name' => 'User',
-            'password' => Hash::make('Winkey@123'),
+            'name' => 'OTTO Digital',
+            'password' => Hash::make('ottodigital'),
             'tanggal_lahir' => '2000-01-01',
             'status' => 'active'
         ]);
