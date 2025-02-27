@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.transactions.index') }}" class="nav-link {{ request()->segment(2) == 'transactions' ? 'active' : '' }}">
+                    <a href="{{ route('admin.users.index') }}" class="nav-link {{ request()->segment(2) == 'users' ? 'active' : '' }}">
                         <i class="fa fa-users nav-icon"></i>
                         <p>User List</p>
                     </a>

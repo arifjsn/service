@@ -38,7 +38,7 @@ Dashboard
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <span data-content="Welcome!" id="greetings"></span> {{ $user->name ?? '-' }}, Welcome to PT Jasanet's Service Information System.
+                        <span data-content="Welcome!" id="greetings"></span> {{ $user->name ?? '-' }}, Welcome to <b>Service Information System</b>.
                     </h3>
 
                     <div class="card-tools">

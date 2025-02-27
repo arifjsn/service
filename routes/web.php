@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\TransactionsController as AdminTransactionsController;
+use App\Http\Controllers\Admin\UsersController as AdminUsersController;
 use App\Http\Controllers\Admin\LogsController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
@@ -86,16 +87,17 @@ Route::middleware(['auth'])->group(function () {
                 });
 
             /**
-             * Claim Garansi
+             * User List
              */
-            Route::controller(AdminClaimGaransiController::class)
-                ->prefix('claim-garansi')
-                ->name('claim-garansi.')
+            Route::controller(AdminUsersController::class)
+                ->prefix('users')
+                ->name('users.')
                 ->group(function () {
                     Route::get('/', 'index')->name('index');
-                    Route::get('/{id}/detail', 'detail')->name('detail');
-                    Route::get('/{id}/tolak', 'tolak')->name('tolak');
-                    Route::get('/{id}/terima', 'terima')->name('terima');
+                    Route::get('/store', 'store')->name('store');
+                    Route::get('/edit', 'edit')->name('edit');
+                    Route::get('/update', 'update')->name('update');
+                    Route::get('/destroy', 'destroy')->name('destroy');
                     Route::get('/{id}/progress', 'progress')->name('progress');
                 });
 
