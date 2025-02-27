@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="{{ route('dashboard') }}" class="brand-link">
-        <img src="{{ asset('dist/img/logo.png') }}" alt="logo" class="brand-image elevation-3" style="opacity: .8">
+        <img src="{{ asset('dist/img/android-chrome-512x512.png') }}" alt="logo" class="brand-image elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light"><b>{{ env('APP_NAME') }}</b></span>
     </a>
 
@@ -24,61 +24,61 @@
                 </li>
 
                 @role('Admin')
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ request()->segment(1) == 'admin' ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-bar-chart"></i>
-                            <p>
-                                Admin
-                                <i class="right fa fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.registrasi-garansi.index') }}" class="nav-link {{ request()->segment(2) == 'registrasi-garansi' ? 'active' : '' }}">
-                                    <i class="fa fa-circle nav-icon"></i>
-                                    <p>Registrasi Garansi</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.claim-garansi.index') }}" class="nav-link {{ request()->segment(2) == 'claim-garansi' ? 'active' : '' }}">
-                                    <i class="fa fa-circle nav-icon"></i>
-                                    <p>Claim Garansi</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.logs.index') }}" class="nav-link {{ request()->segment(2) == 'logs' ? 'active' : '' }}">
-                                    <i class="fa fa-circle nav-icon"></i>
-                                    <p>Logs</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{ request()->segment(1) == 'admin' ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-bar-chart"></i>
+                        <p>
+                            Admin
+                            <i class="right fa fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.registrasi-garansi.index') }}" class="nav-link {{ request()->segment(2) == 'registrasi-garansi' ? 'active' : '' }}">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Registrasi Garansi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.claim-garansi.index') }}" class="nav-link {{ request()->segment(2) == 'claim-garansi' ? 'active' : '' }}">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Claim Garansi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.logs.index') }}" class="nav-link {{ request()->segment(2) == 'logs' ? 'active' : '' }}">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Logs</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 @endrole
 
                 @role('User')
-                    <li class="nav-item">
-                        <a href="#" class="nav-link {{ request()->segment(1) == 'registrasi-garansi' ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-bar-chart"></i>
-                            <p>
-                                Your Forms
-                                <i class="right fa fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('registrasi-garansi.forms') }}" class="nav-link {{ request()->segment(1) == 'registrasi-garansi' ? 'active' : '' }}">
-                                    <i class="fa fa-circle nav-icon"></i>
-                                    <p>Registrasi Garansi</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('claim-garansi.forms') }}" class="nav-link">
-                                    <i class="fa fa-circle nav-icon"></i>
-                                    <p>Claim Garansi</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{ request()->segment(1) == 'registrasi-garansi' ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-bar-chart"></i>
+                        <p>
+                            Your Forms
+                            <i class="right fa fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('registrasi-garansi.forms') }}" class="nav-link {{ request()->segment(1) == 'registrasi-garansi' ? 'active' : '' }}">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Registrasi Garansi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('claim-garansi.forms') }}" class="nav-link">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Claim Garansi</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 @endrole
 
 

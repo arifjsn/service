@@ -227,6 +227,10 @@ class MainController extends Controller
 
     public function dashboard()
     {
-        return view('dashboard');
+        $user = Auth::user();
+
+        return view('dashboard', [
+            'user' => $user
+        ]);
     }
 }

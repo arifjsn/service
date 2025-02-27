@@ -30,7 +30,7 @@
     <div class="wrapper">
 
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('dist/img/logo.png') }}" alt="logo" height="60" width="60">
+            <img class="animation__shake" src="{{ asset('dist/img/android-chrome-512x512.png') }}" alt="logo" height="60" width="60">
         </div>
 
         @include('templates.navbar')
@@ -92,43 +92,44 @@
     <script src="{{ asset('plugins/ekko-lightbox/ekko-lightbox.min.js') }}"></script>
     <script>
         $(document)
-        .ready(function() {
-            // push menu sidebar
-            if (localStorage.getItem('sidebar') === 'show') {
-                $('body').removeClass('sidebar-collapse');
-            } else {
-                $('body').addClass('sidebar-collapse');
-            }
-        })
-        .on('click', '#pushmenu', function() {
-            if ($('body').hasClass('sidebar-collapse')) {
-                localStorage.setItem('sidebar', 'hide');
-            } else if ($('body').hasClass('sidebar-is-opening')) {
-                localStorage.setItem('sidebar', 'show');
-            }
-        })
-        .on('click', '.menu-is-opening', function() {
-            $(this).removeClass('menu-is-opening');
-            $(this).find('.nav-treeview').css('display', 'none');
-        });
-
+            .ready(function() {
+                // push menu sidebar
+                if (localStorage.getItem('sidebar') === 'show') {
+                    $('body').removeClass('sidebar-collapse');
+                } else {
+                    $('body').addClass('sidebar-collapse');
+                }
+            })
+            .on('click', '#pushmenu', function() {
+                if ($('body').hasClass('sidebar-collapse')) {
+                    localStorage.setItem('sidebar', 'hide');
+                } else if ($('body').hasClass('sidebar-is-opening')) {
+                    localStorage.setItem('sidebar', 'show');
+                }
+            })
+            .on('click', '.menu-is-opening', function() {
+                $(this).removeClass('menu-is-opening');
+                $(this).find('.nav-treeview').css('display', 'none');
+            });
     </script>
     <script>
-        $(function () {
-          $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-            event.preventDefault();
-            $(this).ekkoLightbox({
-              alwaysShowClose: true
+        $(function() {
+            $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
             });
-          });
-      
-          $('.filter-container').filterizr({gutterPixels: 3});
-          $('.btn[data-filter]').on('click', function() {
-            $('.btn[data-filter]').removeClass('active');
-            $(this).addClass('active');
-          });
+
+            $('.filter-container').filterizr({
+                gutterPixels: 3
+            });
+            $('.btn[data-filter]').on('click', function() {
+                $('.btn[data-filter]').removeClass('active');
+                $(this).addClass('active');
+            });
         })
-      </script>
+    </script>
 
     @stack('scripts')
 </body>
