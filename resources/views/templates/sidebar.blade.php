@@ -18,40 +18,30 @@
                 <li class="nav-header font-weight-bold mt-2">Account</li>
                 <li class="nav-item">
                     <a href="{{ route('profile.index') }}" class="nav-link {{ request()->segment(1) == 'profile' ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-line-chart"></i>
+                        <i class="nav-icon fa fa-user"></i>
                         <p>Profile</p>
                     </a>
                 </li>
 
                 @role('Admin')
+                <li class="nav-header font-weight-bold mt-2">Admin</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link {{ request()->segment(1) == 'admin' ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-bar-chart"></i>
-                        <p>
-                            Admin
-                            <i class="right fa fa-angle-left"></i>
-                        </p>
+                    <a href="{{ route('admin.transactions.index') }}" class="nav-link {{ request()->segment(2) == 'transactions' ? 'active' : '' }}">
+                        <i class="fa fa-database nav-icon"></i>
+                        <p>Transactions</p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.registrasi-garansi.index') }}" class="nav-link {{ request()->segment(2) == 'registrasi-garansi' ? 'active' : '' }}">
-                                <i class="fa fa-circle nav-icon"></i>
-                                <p>Registrasi Garansi</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.claim-garansi.index') }}" class="nav-link {{ request()->segment(2) == 'claim-garansi' ? 'active' : '' }}">
-                                <i class="fa fa-circle nav-icon"></i>
-                                <p>Claim Garansi</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.logs.index') }}" class="nav-link {{ request()->segment(2) == 'logs' ? 'active' : '' }}">
-                                <i class="fa fa-circle nav-icon"></i>
-                                <p>Logs</p>
-                            </a>
-                        </li>
-                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.transactions.index') }}" class="nav-link {{ request()->segment(2) == 'transactions' ? 'active' : '' }}">
+                        <i class="fa fa-users nav-icon"></i>
+                        <p>User List</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.logs.index') }}" class="nav-link {{ request()->segment(2) == 'logs' ? 'active' : '' }}">
+                        <i class="fa fa-info nav-icon"></i>
+                        <p>Logs</p>
+                    </a>
                 </li>
                 @endrole
 

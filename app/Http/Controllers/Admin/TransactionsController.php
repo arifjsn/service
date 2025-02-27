@@ -18,17 +18,20 @@ class TransactionsController extends Controller
     public function index(Request $request): View
     {
         $transactions = Transactions::latest()
-            ->when($request->pencarian, function ($query, $pencarian) {
-                return $query->whereLike(['invoice', 'item_name', 'item_user', 'serial_number', 'status'], $pencarian);
+            ->when($request->search, function ($query, $search) {
+                return $query->whereLike(['invoice', 'item_name', 'item_user', 'serial_number', 'status'], $search);
             })
-            ->when($request->tgl_awal, function ($query, $tglAwal) {
-                return $query->where('input_date', '>=', $tglAwal);
+            ->when($request->start_date, function ($query, $start_date) {
+                return $query->where('input_date', '>=', $start_date);
             })
-            ->when($request->tgl_akhir, function ($query, $tglAkhir) {
-                return $query->where('input_date', '<=', $tglAkhir);
+            ->when($request->end_date, function ($query, $end_date) {
+                return $query->where('output_date', '<=', $end_date);
             })
             ->when($request->status, function ($query, $status) {
                 return $query->whereLike('status', "%{$status}%");
+            })
+            ->when($request->user, function ($query, $user) {
+                return $query->whereLike('user_id', "%{$user}%");
             })
             ->whereNull('sender')
             ->paginate(10);

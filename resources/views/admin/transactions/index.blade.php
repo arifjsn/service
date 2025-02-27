@@ -13,14 +13,14 @@ Transactions
                 <form>
                     <div class="row">
                         <div class="col-auto" style="width: 150px;">
-                            <input class="form-control form-control-sm" name="tgl_awal" value="{{ request()->tgl_awal }}" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Tgl Awal">
+                            <input class="form-control form-control-sm" name="start_date" value="{{ request()->start_date }}" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Start Date">
                         </div>
                         <div class="col-auto" style="width: 150px;">
-                            <input class="form-control form-control-sm" name="tgl_akhir" value="{{ request()->tgl_akhir }}" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Tgl Akhir">
+                            <input class="form-control form-control-sm" name="end_date" value="{{ request()->end_date }}" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="End Date">
                         </div>
                         <div class="card-tools">
                             <div class="input-group col-auto">
-                                <input type="text" name="pencarian" class="form-control form-control-sm float-right" value="{{ request()->pencarian }}" placeholder="Pencarian">
+                                <input type="text" name="search" class="form-control form-control-sm float-right" value="{{ request()->search }}" placeholder="Search">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default btn-sm">
                                         <i class="fa fa-search"></i>
@@ -30,24 +30,22 @@ Transactions
                         </div>
                         <div class="col-2 input-group">
                             <select name="status" id="status" class="form-control form-control-sm">
-                                <option value="{{ app('request')->input('status') }}">Saat ini: {{ app('request')->input('status') == "" ? 'TAMPIL SEMUA' : app('request')->input('status') }}</option>
-                                <option value="">TAMPIL SEMUA</option>
-                                <option value="PENDING">PENDING</option>
-                                <option value="APPROVED">APPROVED</option>
-                                <option value="REJECTED">REJECTED</option>
+                                <option value="{{ app('request')->input('status') }}">Now: {{ app('request')->input('status') == "" ? 'Show All' : app('request')->input('status') }}</option>
+                                <option value="">Show All</option>
+                                <option value="Not Started">Not Started</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Done">Done</option>
+                                <option value="Cancelled">Cancelled</option>
                             </select>
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
                         <div class="col-2 input-group">
-                            <select name="brand" id="brand" class="form-control form-control-sm">
-                                <option value="{{ app('request')->input('brand') }}">Saat ini: {{ app('request')->input('brand') == "" ? 'TAMPIL SEMUA' : app('request')->input('brand') }}</option>
-                                <option value="">TAMPIL SEMUA</option>
-                                <option value="WINKEY">WINKEY</option>
-                                <option value="ESR">ESR</option>
-                                <option value="QUINCY">QUINCY</option>
-                                <option value="JISULIFE">JISULIFE</option>
+                            <select name="user" id="user" class="form-control form-control-sm">
+                                <option value="{{ app('request')->input('user') }}">Now: {{ app('request')->input('user') == "" ? 'Show All' : app('request')->input('user') }}</option>
+                                <option value="">Show All</option>
                             </select>
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-search"></i></button>
@@ -86,30 +84,28 @@ Transactions
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Tanggal Dibuat</th>
-                            <th>Nama</th>
-                            <th>No Telp</th>
-                            <th>No Garansi</th>
-                            <th>Model Barang</th>
-                            <th>Jenis Barang</th>
-                            <th>Tanggal Pembelian</th>
+                            <th>Invoice</th>
+                            <th>Input Date</th>
+                            <th>Item Name</th>
+                            <th>Serial Number</th>
+                            <th>Complaint</th>
+                            <th>Information</th>
                             <th>Status</th>
-                            <th>Aksi</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($registrasiGaransi as $item)
+                        @foreach ($transactions as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ explode(" ", $item->created_at)[0] }}</td>
-                            <td>{{ $item->nama }}</td>
-                            <td>{{ $item->nomor_hp }}</td>
-                            <td>{{ $item->nomor_garansi }}</td>
-                            <td>{{ $item->model_barang }}</td>
-                            <td>{{ $item->jenis_barang }}</td>
-                            <td>{{ $item->tanggal_pembelian }}</td>
+                            <td>{{ $item->invoice }}</td>
+                            <td>{{ $item->input_date }}</td>
+                            <td>{{ $item->item_name }}</td>
+                            <td>{{ $item->serial_number }}</td>
+                            <td>{{ $item->complaint }}</td>
+                            <td>{{ $item->information }}</td>
                             <td>
-                                <button style="pointer-events: none; border-radius: 20px;" class="btn btn-sm btn-{{ $item->status === 'PENDING' ? 'warning' : ($item->status === 'APPROVED' ? 'success' : 'danger') }}">
+                                <button style="pointer-events: none; border-radius: 20px;" class="btn btn-sm btn-{{ $item->status === 'Not Started' ? 'info' : ($item->status === 'In Progress' ? 'primary' : ($item->status === 'Pending' ? 'warning' : ($item->status === 'Done' ? 'success' : 'danger'))) }}">
                                     {{ $item->status }}
                                 </button>
                             </td>
@@ -126,7 +122,7 @@ Transactions
                 </table>
 
                 <div class="d-flex justify-content-end m-3">
-                    {{ $registrasiGaransi->appends(request()->all())->links() }}
+                    {{ $transactions->appends(request()->all())->links() }}
                 </div>
             </div>
         </div>

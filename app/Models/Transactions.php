@@ -10,7 +10,7 @@ class Transactions extends Model
 {
     use HasFactory;
 
-    protected $table = 'transanctions';
+    protected $table = 'transactions';
     protected $guarded = ['id'];
 
     public function user(): BelongsTo

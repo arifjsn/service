@@ -20,43 +20,39 @@ class AdminSeeder extends Seeder
             'guard_name' => 'web'
         ], []);
 
-        
-        $adminUser = User::updateOrCreate([
-            'email' => 'sales@jasanet.co.id'
-        ], [
-            'name' => 'Hendra Susanto',
-            'password' => Hash::make('Jasanet@123'),
-            'status' => 'active'
-        ]);
-        $adminUser = User::updateOrCreate([
-            'email' => 'arif@jasanet.co.id'
-        ], [
-            'name' => 'Arif Febrianto',
-            'password' => Hash::make('Jasanet@123'),
-            'status' => 'active'
-        ]);
-        $adminUser = User::updateOrCreate([
-            'email' => 'sales1@jasanet.co.id'
-        ], [
-            'name' => 'Erna Safitri',
-            'password' => Hash::make('Jasanet@123'),
-            'status' => 'active'
-        ]);
-        $adminUser = User::updateOrCreate([
-            'email' => 'dani@jasanet.co.id'
-        ], [
-            'name' => 'Dani Prasetya',
-            'password' => Hash::make('Jasanet@123'),
-            'status' => 'active'
-        ]);
-        $adminUser = User::updateOrCreate([
-            'email' => 'iqbal@jasanet.co.id'
-        ], [
-            'name' => 'Muhammad Iqbal Ramadan',
-            'password' => Hash::make('Jasanet@123'),
-            'status' => 'active'
-        ]);
+        $adminUsers = [
+            [
+                'email' => 'sales@jasanet.co.id',
+                'name' => 'Hendra Susanto'
+            ],
+            [
+                'email' => 'arif@jasanet.co.id',
+                'name' => 'Arif Febrianto'
+            ],
+            [
+                'email' => 'sales1@jasanet.co.id',
+                'name' => 'Erna Safitri'
+            ],
+            [
+                'email' => 'dani@jasanet.co.id',
+                'name' => 'Dani Prasetya'
+            ],
+            [
+                'email' => 'iqbal@jasanet.co.id',
+                'name' => 'Muhammad Iqbal Ramadan'
+            ]
+        ];
 
-        $adminUser->assignRole('Admin');
+        foreach ($adminUsers as $adminUserData) {
+            $adminUser = User::updateOrCreate([
+                'email' => $adminUserData['email']
+            ], [
+                'name' => $adminUserData['name'],
+                'password' => Hash::make('Jasanet@123'),
+                'status' => 'active'
+            ]);
+
+            $adminUser->assignRole('Admin');
+        }
     }
 }
