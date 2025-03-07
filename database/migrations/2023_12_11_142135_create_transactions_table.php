@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('information')->nullable();
             $table->string('technician')->nullable();
             $table->string('taker')->nullable();
-            $table->integer('sender')->nullable();
+            $table->string('sender')->nullable();
             $table->enum('status', ['Not Started', 'In Progress', 'Pending', 'Done', 'Canceled']);
             $table->timestamps();
         });

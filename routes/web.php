@@ -80,6 +80,9 @@ Route::middleware(['auth'])->group(function () {
                 ->name('transactions.')
                 ->group(function () {
                     Route::get('/', 'index')->name('index');
+                    Route::post('/store', 'store')->name('store');
+                    Route::put('/{id}/update', 'update')->name('update');
+                    Route::delete('/{id}/destroy', 'destroy')->name('destroy');
                     Route::get('/{id}/detail', 'detail')->name('detail');
                     Route::get('/{id}/tolak', 'tolak')->name('tolak');
                     Route::get('/{id}/terima', 'terima')->name('terima');

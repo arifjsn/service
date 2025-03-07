@@ -31,29 +31,28 @@ Profile
         </div>
 
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3">
 
-                    <div class="card card-primary card-outline">
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card card-success card-outline">
                         <div class="card-body box-profile">
-                            <h3 class="profile-username text-center">{{ $user->name ?? '-' }}</h3>
+                            <h3 class="profile-username text-center fw-bold">Profile</h3>
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b>Email</b> <a class="float-right">{{ $user->email ?? '-' }}</a>
+                                    <b>Name</b> <a class="float-right text-body">{{ $user->name ?? '-' }}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Tanggal Lahir</b> <a class="float-right">{{ $user->tanggal_lahir ?? '-' }}</a>
+                                    <b>Email</b> <a class="float-right text-body">{{ $user->email ?? '-' }}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Nomor Telp</b> <a class="float-right">{{ $user->no_hp ?? '-' }}</a>
+                                    <b>Address</b> <a class="float-right text-body">{{ $user->address ?? '-' }}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Roles</b>
-                                    <ul>
-                                        @foreach ($user->roles as $role)
-                                            <li>{{ $role->name }}</li>
-                                        @endforeach
-                                    </ul>
+                                    <b>Nomor Telp</b> <a class="float-right text-body">{{ $user->phone_number ?? '-' }}</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Roles</b><a class="float-right text-body">{{ $user->roles->pluck('name')->join(', ') ?? '-' }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -62,12 +61,10 @@ Profile
 
                 </div>
 
-                <div class="col-md-9">
-                    <div class="card">
+                <div class="col-md-8">
+                    <div class="card card-success card-outline">
                         <div class="card-header p-2">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Settings</a></li>
-                            </ul>
+                            <h3 class="profile-username text-center fw-bold">Edit</h3>
                         </div>
                         <div class="card-body">
                             <div class="tab-content">
@@ -91,26 +88,26 @@ Profile
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="tanggal_lahir" class="col-sm-2 col-form-label">Date of Birth</label>
+                                            <label for="address" class="col-sm-2 col-form-label">Date of Birth</label>
                                             <div class="col-sm-10">
-                                                <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" value="{{ $user->tanggal_lahir }}" placeholder="dd-mm-yyyy">
-                                                @error('tanggal_lahir')
+                                                <input type="text" class="form-control" name="address" id="address" value="{{ $user->address }}">
+                                                @error('address')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="no_hp" class="col-sm-2 col-form-label">Phone Number</label>
+                                            <label for="phone_number" class="col-sm-2 col-form-label">Phone Number</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="no_hp" id="no_hp" value="{{ $user->no_hp }}">
-                                                @error('no_hp')
+                                                <input type="text" class="form-control" name="phone_number" id="phone_number" value="{{ $user->phone_number }}">
+                                                @error('phone_number')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="offset-sm-2 col-sm-10">
-                                                <button type="submit" onclick="return confirm('Apakah anda yakin?')" class="btn btn-primary">Submit</button>
+                                                <button type="submit" onclick="return confirm('Apakah anda yakin?')" class="btn btn-success">Submit</button>
                                             </div>
                                         </div>
                                     </form>

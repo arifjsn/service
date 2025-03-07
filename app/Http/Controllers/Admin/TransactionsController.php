@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Transactions;
 use App\Models\Logs;
+use App\Models\User;
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -36,8 +37,54 @@ class TransactionsController extends Controller
             ->whereNull('sender')
             ->paginate(10);
 
+        $users = User::all();
+
         return view('admin.transactions.index', [
-            'transactions' => $transactions
+            'transactions' => $transactions,
+            'users' => $users
         ]);
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'invoice' => 'required',
+            'input_date' => 'required|date',
+            'item_name' => 'required',
+            'serial_number' => 'required',
+            'complaint' => 'required',
+            'information' => 'required',
+            'status' => 'required',
+        ]);
+
+        Transactions::create($request->all());
+
+        return redirect()->route('admin.transactions.index')->with('success', 'Transaction created successfully.');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'invoice' => 'required',
+            'input_date' => 'required|date',
+            'item_name' => 'required',
+            'serial_number' => 'required',
+            'complaint' => 'required',
+            'information' => 'required',
+            'status' => 'required',
+        ]);
+
+        $transaction = Transactions::findOrFail($id);
+        $transaction->update($request->all());
+
+        return redirect()->route('admin.transactions.index')->with('success', 'Transaction updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $transaction = Transactions::findOrFail($id);
+        $transaction->delete();
+
+        return redirect()->route('admin.transactions.index')->with('success', 'Transaction deleted successfully.');
     }
 }
