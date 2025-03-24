@@ -263,10 +263,6 @@ Transactions
                         <input type="date" name="input_date" id="input_date" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="output_date">Output Date</label>
-                        <input type="date" name="output_date" id="output_date" class="form-control">
-                    </div>
-                    <div class="form-group">
                         <label for="item_name">Item Name</label>
                         <input type="text" name="item_name" id="item_name" class="form-control">
                     </div>
@@ -304,7 +300,7 @@ Transactions
                     </div>
                     <div class="form-group">
                         <label for="status">Status</label>
-                        <select name="status" id="status" class="form-control">
+                        <select name="status" id="status" class="form-control selectpicker bootstrap-select">
                             <option value="Not Started">Not Started</option>
                             <option value="In Progress">In Progress</option>
                             <option value="Pending">Pending</option>

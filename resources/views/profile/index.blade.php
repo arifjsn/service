@@ -49,7 +49,7 @@ Profile
                                     <b>Address</b> <a class="float-right text-body">{{ $user->address ?? '-' }}</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Nomor Telp</b> <a class="float-right text-body">{{ $user->phone_number ?? '-' }}</a>
+                                    <b>Contact</b> <a class="float-right text-body">{{ $user->phone_number ?? '-' }}</a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>Roles</b><a class="float-right text-body">{{ $user->roles->pluck('name')->join(', ') ?? '-' }}</a>
@@ -88,7 +88,7 @@ Profile
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="address" class="col-sm-2 col-form-label">Date of Birth</label>
+                                            <label for="address" class="col-sm-2 col-form-label">Address</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" name="address" id="address" value="{{ $user->address }}">
                                                 @error('address')
@@ -107,7 +107,7 @@ Profile
                                         </div>
                                         <div class="form-group row">
                                             <div class="offset-sm-2 col-sm-10">
-                                                <button type="submit" onclick="return confirm('Apakah anda yakin?')" class="btn btn-success">Submit</button>
+                                                <button type="submit" onclick="return confirm('Are You Sure?')" class="btn btn-success">Submit</button>
                                             </div>
                                         </div>
                                     </form>
